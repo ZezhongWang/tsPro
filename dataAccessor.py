@@ -1,0 +1,2 @@
+class DataAccessor(object):
+    pass
