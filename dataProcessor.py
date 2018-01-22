@@ -1,3 +1,4 @@
 class DataProcessor(object):
-    pass
 
+    def run(self):
+        pass

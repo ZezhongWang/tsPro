@@ -8,9 +8,7 @@ import tushare as ts
 print ts.__version__
 
 accessor = DataAccessor()
-accessor.run()
-processor = DataProcessor(data)
+accessor.run(size='part')
+processor = DataProcessor()
 processor.run()
-
-
-print "ts Pro run!"
+print "tsPro exit"
