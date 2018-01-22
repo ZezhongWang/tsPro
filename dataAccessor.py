@@ -21,13 +21,13 @@ class DataAccessor(object):
         code_k_data = {}
         if size == 'all':
             for sh_code in sh_code_list:
-                code_k_data[sh_code] = ts.get_k_data(sh_code, ktype='5', start='2018-01-15', end='2018-01-19')
-                code_k_data_panel = pd.Panel(code_k_data)
-                code_k_data_panel.to_pickle('code_k_data_all.pkl')
+                code_k_data[sh_code] = ts.get_hist_data(sh_code, ktype='5', start='2018-01-16', end='2018-01-17')
+            code_k_data_panel = pd.Panel(code_k_data)
+            code_k_data_panel.to_pickle('code_k_data_all.pkl')
         elif size == 'part':
             for sh_code in sh_code_list[:5]:
-                code_k_data[sh_code] = ts.get_k_data(sh_code, ktype='5', start='2018-01-15', end='2018-01-19')
-                code_k_data_panel = pd.Panel(code_k_data)
-                code_k_data_panel.to_pickle('code_k_data_part.pkl')
+                code_k_data[sh_code] = ts.get_hist_data(sh_code, ktype='5', start='2018-01-16', end='2018-01-17')
+            code_k_data_panel = pd.Panel(code_k_data)
+            code_k_data_panel.to_pickle('code_k_data_part.pkl')
 
 

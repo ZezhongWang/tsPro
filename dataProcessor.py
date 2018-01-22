@@ -8,4 +8,3 @@ class DataProcessor(object):
         draw_line_chart()
 
 
-    
