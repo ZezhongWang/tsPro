@@ -2,19 +2,18 @@
 import pandas as pd
 
 
-def calc_corr(stock_dict):
-    # data = pd.read_pickle('code_k_data_part.pkl').to_frame()
-    stock_dict = pd.Panel(stock_dict).to_frame()
-    for index in stock_dict.index[0]:
-        index = str(index)
-        print(index)
-        stock_dict[index] = stock_dict[index].drop(['ma5'], axis=0)
-    # df = pd.Panel(stock_dict).to_frame()
-    corr = stock_dict.corr()
+def calc_corr():
+    stock_panel= pd.read_pickle('code_k_data_part.pkl')
+
+    for key, data in stock_panel.iteritems():
+        stock_panel[key] = stock_panel[key].drop(['turnover'], axis=1)
+
+    df = pd.Panel(stock_panel).to_frame()
+    corr = stock_panel.corr()
     # corr = df.corr()  # ¼ÆËãÏà¹ØÏµÊý
     corr_strong = corr[corr >= 0.8]
     print(corr)
     print(corr[corr >= 0.8])
     corr.to_csv('/home/lijiaheng/corr.csv')
-    stock_dict.axes
+    stock_panel.axes
     corr_strong.to_csv('/home/lijiaheng/corr_string.csv')
